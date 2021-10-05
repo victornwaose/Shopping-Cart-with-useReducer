@@ -1,6 +1,8 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
+import Rating from "./Rating";
+
 const SingleProduct = ({ product }) => {
     return (
         <div>
@@ -15,6 +17,7 @@ const SingleProduct = ({ product }) => {
                         ) : (
                             <div>4 days Delivery</div>
                         )}
+                        <Rating rating={product.ratings} />
                     </Card.Subtitle>
                 </Card.Body>
             </Card>
