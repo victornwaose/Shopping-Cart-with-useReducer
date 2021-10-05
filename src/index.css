@@ -7,3 +7,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.filter {
+    height: 85vh;
+}
+.filter > span {
+    padding-bottom: 20px;
+}
