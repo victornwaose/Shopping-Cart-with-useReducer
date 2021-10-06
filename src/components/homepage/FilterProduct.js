@@ -7,7 +7,7 @@ const FilterProduct = () => {
     const [rate, setRate] = useState(2);
 
     return (
-        <div className="  filter  bg-gray-800 text-white p-5 flex flex-col w-1/4 m-1 ">
+        <div className=" sticky filter  bg-gray-800 text-white p-5 flex flex-col w-1/4 m-1 ">
             <span className=" text-3xl">Filter product</span>
             <span>
                 <Form.Check

@@ -2,13 +2,14 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 import Rating from "./Rating";
-import { CartState } from "../../context/Context";
+import { CartState } from "../../context/Context.js";
 
 const SingleProduct = ({ product }) => {
     const {
         state: { cart },
         dispatch,
     } = CartState();
+
     return (
         <div className=" w-1/5 m-3">
             <Card className="card ">
@@ -29,33 +30,29 @@ const SingleProduct = ({ product }) => {
                         )}
                         <Rating rating={product.ratings} />
                     </Card.Subtitle>
-                    {cart.some((p) => p.id === product.id) ? (
+                    {cart?.some((p) => p.id === product.id) ? (
                         <Button
-                            onClick={() =>
+                            onClick={() => {
                                 dispatch({
                                     type: "REMOVE_FROM_CART",
                                     payload: product,
-                                })
-                            }
+                                });
+                            }}
                             variant="danger"
                         >
                             Remove from Cart
                         </Button>
                     ) : (
                         <Button
-                            onClick={() =>
+                            onClick={() => {
                                 dispatch({
                                     type: "ADD_TO_CART",
                                     payload: product,
-                                })
-                            }
-                            disabled={
-                                !product.inStock
-                                    ? "out of stock"
-                                    : "Add to Cart"
-                            }
+                                });
+                            }}
+                            disabled={!product.inStock}
                         >
-                            Ad to Cart
+                            {!product.inStock ? "Out of Stock " : "Add to Cart"}{" "}
                         </Button>
                     )}
                 </Card.Body>
