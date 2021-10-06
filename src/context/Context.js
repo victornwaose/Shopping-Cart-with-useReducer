@@ -4,6 +4,7 @@ import faker from "faker";
 import { cartReducer } from "./Reducer";
 
 const Cart = createContext();
+faker.seed(99);
 
 export const CartState = () => {
     return useContext(Cart);

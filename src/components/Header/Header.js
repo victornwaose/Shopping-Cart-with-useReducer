@@ -1,4 +1,5 @@
 import React from "react";
+import { Nav, Dropdown, Badge } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -17,10 +18,17 @@ const Header = () => {
                         className="bg-white  rounded-sm w-60 pl-2 h-8"
                     />
                 </div>
-                <div className="relative">
-                    <FaShoppingCart className="w-6 h-6 bg-green-700" />
-                    <h1 className="absolute -top-4 left-5">6</h1>
-                </div>
+                <Nav>
+                    <Dropdown alignRight>
+                        <Dropdown.Toggle variant="success">
+                            <FaShoppingCart className="text-white text-2xl" />
+                            <Badge>{10}</Badge>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu style={{ minWidth: 370 }}>
+                            <span style={{ padding: 10 }}>Cartis empty</span>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Nav>
             </header>
         </div>
     );
