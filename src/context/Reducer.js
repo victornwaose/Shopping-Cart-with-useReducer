@@ -3,7 +3,7 @@ export const cartReducer = (state, action) => {
         case "ADD_TO_CART":
             return {
                 ...state,
-                cart: [...state.cart, { ...action.payload, qty: 1 }],
+                cart: [...state.cart, { ...action.payload, qty: 5 }],
             };
         case "REMOVE_FROM_CART":
             return {
