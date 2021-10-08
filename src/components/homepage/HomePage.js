@@ -17,6 +17,22 @@ const HomePage = () => {
                 sort === "lowToHigh" ? a.price - b.price : b.price - a.price
             );
         }
+        if (!byStock) {
+            sortedProducts = sortedProducts?.filter(
+                (product) => product.inStock
+            );
+        }
+        if (byRating) {
+            sortedProducts = sortedProducts.filter(
+                (product) => product.rating >= byRating
+            );
+        }
+        if (searchQuery) {
+            // eslint-disable-next-line array-callback-return
+            sortedProducts = sortedProducts.filter((product) => {
+                product.name.toLowerCase().includes(searchQuery);
+            });
+        }
         return sortedProducts;
     };
 
