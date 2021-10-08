@@ -45,6 +45,15 @@ const Cart = () => {
                                         <Form.Control
                                             as="select"
                                             value={product.qty}
+                                            onChange={(e) =>
+                                                dispatch({
+                                                    type: "CHANGE_CART_QTY",
+                                                    payload: {
+                                                        id: product.id,
+                                                        qty: e.target.value,
+                                                    },
+                                                })
+                                            }
                                         >
                                             {[
                                                 ...Array(
